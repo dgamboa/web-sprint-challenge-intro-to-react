@@ -29,12 +29,16 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
+* **Answer**: React is a JavaScript library to develop and render UI components. It is designed to facilitate complex state management. It supports large, scalable, fast web apps and was developed by a team at Facebook. The [React docs](https://reactjs.org/docs/getting-started.html) are overall terrific but my favorite piece is their discussion on [Thinking in React](https://reactjs.org/docs/thinking-in-react.html).
 
-1. Describe component state.
+2. Describe component state.
+* **Answer**: component state is the condition or set of conditions at a particular time that govern how the component interacts with its surroundings (user, other components, etc). Effectively, we can think of state as a set of properties that influence the component's behavior and may change depending on that component's interactivity. My favorite analogy when thinking about component state is water state. We can freeze water into ice by changing its state from liquid to frozen. The water will have different properties (e.g. a liquid becomes a solid).
 
-1. Describe props.
+3. Describe props.
+* **Answer**: component props are the properties of a component. The key word props in React is an object containing the properties that a parent component passes to a child component.
 
-1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+4. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+* **Answer**: side effects are consequences of a function that go beyond the scope of that function. For example, if a function triggers a render based on changing the state of a certain component but in so doing, it causes other components' states to also change (e.g. an API call). We can sync effects to certain state or props by using the `useEffect()` hook and passing it an array as the second parameter in which we designate side effects based on specific changes.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -56,12 +60,12 @@ You are expected to be able to answer questions in these areas. Your responses c
 
 Your finished project must include all of the following requirements:
 
-- [ ] Use ONE of the following APIs:
+- [x] Use ONE of the following APIs:
   - [Star Wars API](https://swapi.dev/)
   - [Alternate Star Wars API](https://swapi.py4e.com/)
   - [The Rick and Morty API](https://rickandmortyapi.com/)
   - [The RESTful Pokémon API](https://pokeapi.co/) (**harder**)
-- [ ] Use the documentation and Google to learn how to fetch characters from your API.
+- [x] Use the documentation and Google to learn how to fetch characters from your API.
 - [ ] Obtain a list of characters. One or several requests might be needed, depending on the API.
 - [ ] Set the list of characters into state.
 - [ ] Render your characters to the screen:
