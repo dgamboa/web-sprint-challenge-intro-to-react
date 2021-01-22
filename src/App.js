@@ -38,6 +38,7 @@ const App = () => {
       {
         characters.map(character => {
           return <Character
+                   key={character.name}
                    name={character.name}
                    gender={character.gender}
                    birthYear={character.birth_year}
