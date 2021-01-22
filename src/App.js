@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL } from './constants/base_url'
+import Character from './components/Character'
 import './App.css';
 
 const App = () => {
@@ -10,7 +11,11 @@ const App = () => {
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
-  const [characters, setCharacters] = useState('');
+  const [characters, setCharacters] = useState([{
+                                                  name: "Sample Name"
+                                                }, {
+                                                  name: "Another Name"
+                                                }]);
 
   useEffect(() => {
     const fetchCharacters = () => {
@@ -29,7 +34,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <h1 className="Header">Star Wars Characters</h1>
+      {
+        characters.map(character => {
+          return <Character
+                   name={character.name}
+                   gender={character.gender}
+                   birthYear={character.birth_year}
+                   height={character.height}
+                   mass={character.mass}
+                 />
+        })
+      }
     </div>
   );
 }
