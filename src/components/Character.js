@@ -11,7 +11,7 @@ const StyledCharacter = styled.div`
 
   /* Internal Structure */
   position: relative;
-  height: ${(props) => (props.expanded ? `40rem` : `5rem`)};
+  height: ${(props) => (props.expanded ? `22rem` : `5rem`)};
   overflow: hidden;
   transition: all 0.3s ease;
 
@@ -31,20 +31,33 @@ const StyledCharacter = styled.div`
   span.arrow-down {
     font-size: 2rem;
     position: absolute;
-    top: 0.7rem;
+    top: ${(props) => props.expanded ? "1.5rem" : "0.7rem"};
     right: 2%;
+  }
+  p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-left: 2.2rem;
+    text-align: left;
   }
 `;
 
-export default function Character({ name, gender, birth_year, height, mass }) {
-  const [expanded, setExpanded] = useState(true);
+export default function Character({ name, gender, birthYear, height, mass }) {
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <StyledCharacter expanded={expanded} onClick={() => setExpanded(!expanded)}>
+    <StyledCharacter
+      expanded={expanded}
+      onClick={() => setExpanded(!expanded)}
+    >
       <h2>{name}</h2>
-      <span className="arrow-down">&#8964;</span>
+      <span className="arrow-down">
+        {expanded
+          ? `${String.fromCharCode(8963)}`
+          : `${String.fromCharCode(8964)}`}
+        </span>
       <p>Gender: {gender}</p>
-      <p>Birth Year: {birth_year}</p>
+      <p>Birth Year: {birthYear}</p>
       <p>Height: {height}</p>
       <p>Mass: {mass}</p>
     </StyledCharacter>
